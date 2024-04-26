@@ -1,38 +1,497 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+button{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 20px 20px 0 0;
   }
+.navbar {
+    position: fixed;
+    width: 100%;
+    height: 5%;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar button {
+    background-color: transparent;
+    border: none;
+    margin-right: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;  
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar button:hover {
+    scale: 1.1; 
   }
-  to {
-    transform: rotate(360deg);
+
+.Landing, .About, .Skills{
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+    margin-left: 0;
   }
+  .social-media {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 10%;
+    bottom: 5%;
+    border: 1px solid white;
+    padding: 5px 0 3px 0;
+    border-radius: 25px;
+  }
+  .social-media a{
+    margin-right: 20px;
+    color: white;
+  }
+  .social-media a:first-child{
+    margin-left: 20px;
+    scale: 1.3;
+  }
+  .social-media a:hover{
+    scale: 1.3;
+  }
+  .social-media a:first-child:hover{
+    scale: 1.5;
+  }
+  .About span{
+    font-weight: bolder;
+    font-style: italic;
+  }
+  .About h2{
+    font-size: 3em;
+  }
+  .About p{
+    margin-top: 30px;
+    width: 40%;
+  }
+
+  /* Skills Section */
+  li{
+    list-style-type: none;
+    margin: 10px 0;
+  }
+  label {
+    display: inline-block;
+    width: 100px;
+    text-align: left; 
+  }
+  input[type='range'] {
+    overflow: hidden;
+    width: 150px;
+    -webkit-appearance: none;
+    background-color: #767570;
+    border-radius: 5px;
+  }
+  input[type='range']:hover{
+    scale: 1.1;
+  }
+  
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 5px;
+    -webkit-appearance: none;
+    color: #f9f9f9;
+    margin-top: -1px;
+  }
+  
+  input[type='range']::-webkit-slider-thumb {
+    width: 13px;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    height: 13px;
+    margin-top: -3px;
+    background: #ffffff;
+    box-shadow: -80px 0 0 70px #ffffff;
+  }
+  .firstSide{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5% 0;
+  }
+  .secondSide{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .project {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition */
+  }
+  
+  .project:hover::before {
+    opacity: 1; /* Show overlay on hover */
+  }
+  
+  .project h3 {
+    position: absolute;
+    font-size: 1em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    display: none; 
+  }
+  
+  .project:hover h3 {
+    display: block; /* Display the text when .project is hovered */
+  }
+  
+  .project:hover {
+    transform: scale(1.1);
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+  }
+/* Start Portfolio Showcase */
+.portfolioPage{
+    padding: 5%;
 }
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.projectImg{
+    width: 200px;
+    height: 150px;
+  }
+  
+/* Start designing the Modal */
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(10, 15, 25);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: auto; /* Let content dictate height */
+    max-width: 900px;
+    overflow-y: auto;
+  }
+  .close-btn {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+  
+  }
+  
+  .popup-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .popup img {
+    max-width: 100%;
+    height: auto;
+  }
+  .ProjectDisplay{
+    display: flex;
+    flex-direction: column;
+  }
+  .imgArray{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 500px;
+    margin-top: 4%;
+  }
+  .imgArray img{
+    cursor: pointer;
+  }
+  .unucode{
+    border: 1px solid white;
+    height: 50px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  .ProjectDetails{
+    display: flex;
+    flex-direction: column;
+  }
+  .ProjectDetails h2{
+    margin-top: 5%;
+    text-align: right;
+    right: 3%;
+    position: absolute;
+    width: 30%;
+  }
+  .ProjectDetails p{
+    margin-top: 10%;
+    text-align: right;
+    right: 3%;
+    position: absolute;
+    width: 30%;
+  }
+  .buttonsContainer{
+    position: absolute;
+    bottom: 10%;
+    right: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+  }
+  .buttonsContainer button{
+    margin-right: 10px;
+  }
+  .popupContact {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background-color: rgb(14, 21, 35);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure the popup appears above other content */
+  }
+  
+  .popupContact-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .firstContactDiv {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    background-image: url("https://i.pinimg.com/564x/da/44/8a/da448abd8bdf93118813d20b5118941e.jpg"); 
+    background-size: cover;
+    background-position: center; 
+  }
+
+  .secondContactDiv {
+    width: 40%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: right; /* Align text content to the right */
+  }
+  
+  .secondContactDiv p {
+    text-align: right; /* Align paragraph text to the right */
+  }
+  
+  .secondContactDiv h1 {
+    margin: 20% 0;
+  }
+  .social-media-contact{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    right: 10%;
+    bottom: 5%;
+    border: 1px solid white;
+    padding: 5px 0 3px 0;
+    border-radius: 25px;
+
+  }
+  .social-media-contact a{
+    margin-right: 20px;
+    color: white;
+  }
+  .social-media-contact a:first-child{
+    margin-left: 20px;
+    scale: 1.3;
+  }
+  .social-media-contact a:hover{
+    scale: 1.3;
+  }
+  .social-media-contact a:first-child:hover{
+    scale: 1.5;
+  }
+  .close-btn-contact {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .popup {
+      width: 90%; 
+      height: auto; 
+    }
+    .popup-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .ProjectDetails h2{
+      text-align: left;
+      margin-top: 15%;
+      left: 3%;
+      position: absolute;
+      width: 90%;
+    }
+    .ProjectDetails p{
+      text-align: left;
+      position: absolute;
+      left: 3%;
+      width: 90%;
+      padding: 15% 0;
+    }
+    .buttonsContainer{
+      position: relative;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .gallery{
+      position: relative;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 5%;
+      top: 15%;
+    }
+    .portfolio-categories {
+      position: relative;
+      top: 25%;
+    }
+    .portfolioPage h2{
+      display: none;
+    }
+
+    }
+@media screen and (min-width: 768px) {
+    .project {
+      height: 150px;
+      width: 200px;
+    }
+    .firstSide{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5% 0;
+    }
+}
+@media (max-width: 1200px) and (min-width: 768px) {
+    .popup-content {
+      flex-direction: column;
+    }
+    .popup-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .ProjectDetails h2{
+      text-align: left;
+      margin-top: 15%;
+      left: 3%;
+      position: absolute;
+      width: 90%;
+    }
+    .ProjectDetails p{
+      text-align: left;
+      position: absolute;
+      left: 3%;
+      width: 90%;
+      padding: 15% 0;
+    }
+    .buttonsContainer{
+      position: relative;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+  }
+@media screen and (min-width: 1200px) {
+    .Skills{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5% 0;
+    }
+    .firstSide{
+        width: 70%;
+    }
+    .secondSide{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+        width: 30%;
+    }
+}
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(14, 21, 35); /* Light grey */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #403c45;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #544f5a; 
+  }
