@@ -12,6 +12,10 @@ function App() {
     const portfolioSection = document.getElementById('Portfolio');
     portfolioSection.scrollIntoView({ behavior: 'smooth' });
   };
+  const scrollToSkills = () => {
+    const skillsSection = document.getElementById('Skills');
+    skillsSection.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className="App">
