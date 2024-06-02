@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import { YouTube, Instagram, GitHub, Twitter } from '@mui/icons-material';
-import Landing from "./Images/Land.jpg";
+import Landing from "./Images/Land2.jpg";
 import About from "./Images/About.jpg";
 import Skills from "./Images/Resume.jpg";
 import Navbar from "./Components/Navbar";
