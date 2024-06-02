@@ -21,8 +21,8 @@ function App() {
         <p>Self-Taught</p>
         <h2>Front-End Developer</h2>
         <div className='buttons'>
-          <button>Resume</button>
-          <button>Portfolio</button>
+          <button  onClick={() => scrollToSkills('Skills')}>Resume</button>
+          <button  onClick={() => scrollToPortfolio('Portfolio')}>Portfolio</button>
         </div>
         <div className='social-media'>
           <a href="https://www.youtube.com/channel/your_channel_id" target="_blank" rel="noopener noreferrer">
